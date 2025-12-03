@@ -294,7 +294,7 @@
           <div class="roadmap-item">
             <div class="icon">
               <img
-                src="https://cdn.fs.teachablecdn.com/L2rtxPaRxa4am1VtNegg"
+                src="https://www.svgrepo.com/show/373829/maven.svg"
                 alt=""
               />
             </div>
