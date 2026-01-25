@@ -259,7 +259,7 @@
 
     <div class="navbar">
       <div class="profile">
-        <img src="" alt="Your Logo"/>
+        <img src="https://github.com/MH-malik22/jenkins-project/blob/master/src/main/webapp/Devops1.jpeg" alt="Your Logo"/>
         <h3 class="name"> MH- DevOps Test APP
           <p class="dj">Sr.DevOps Engineer</p>
         </h3>
