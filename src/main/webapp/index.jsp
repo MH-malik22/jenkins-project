@@ -317,7 +317,7 @@
             </div>
             <div class="roadmap-content">
               <h3>Jenkins</h3>
-              <span class="ribbon completed">Process</span>
+              <span class="ribbon completed">Completed</span>
 
               <p>
                 Continuous Integration/Continuous Deployment, Pipeline as Code,
@@ -334,6 +334,7 @@
             </div>
             <div class="roadmap-content">
               <h3>Ansible</h3>
+               <span class="ribbon pending">Pending</span>
               <p>
                 Infrastructure as Code, Configuration Management, Playbooks,
                 Roles, Inventory Management
@@ -349,6 +350,7 @@
             </div>
             <div class="roadmap-content">
               <h3>Docker</h3>
+             <span class="ribbon pending">Pending</span>
               <p>
                 Containerization, Image Creation, Docker Compose, Container
                 Orchestration, Registry Management
@@ -364,6 +366,7 @@
             </div>
             <div class="roadmap-content">
               <h3>Kubernetes</h3>
+            <span class="ribbon pending">Pending</span>
               <p>
                 Container Orchestration, Pod Management, Services, Deployments,
                 StatefulSets, ConfigMaps & Secrets
@@ -379,6 +382,7 @@
             </div>
             <div class="roadmap-content">
               <h3>Terraform</h3>
+             <span class="ribbon pending">Pending</span>
               <p>
                 Infrastructure as Code, Resource Management, State Management,
                 Provider Configuration, Modules
@@ -395,14 +399,14 @@
         <div class="status-section">
           <h3>Jenkins Project</h3>
           <div class="status-item">
-            <div class="date">July 9, 2025</div>
+            <div class="date">January 25, 20265</div>
             <div class="content">
              Currently working on Jenkins
             </div>
             <span class="tag">Process</span>
           </div>
         <div class="status-item">
-            <div class="date">July 9, 2025</div>
+            <div class="date">January 25, 2026</div>
             <div class="content">
               Successfully Configured Tomcat App Server
             </div>
@@ -410,7 +414,7 @@
           </div>
         </div>
       <div class="status-item">
-            <div class="date">July 9, 2025</div>
+            <div class="date">January 25, 2026</div>
             <div class="content">
               Successfully Completed Jenkins FreeStyle Deployment
             </div>
