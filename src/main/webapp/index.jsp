@@ -259,7 +259,7 @@
 
     <div class="navbar">
       <div class="profile">
-        <img src="https://avatars.githubusercontent.com/u/138564160?v=4" alt="Your Logo"/>
+        <img src="" alt="Your Logo"/>
         <h3 class="name"> MH- DevOps Test APP
           <p class="dj">Sr.DevOps Engineer</p>
         </h3>
@@ -317,7 +317,7 @@
             </div>
             <div class="roadmap-content">
               <h3>Jenkins</h3>
-              <span class="ribbon pending">Process</span>
+              <span class="ribbon completed">Process</span>
 
               <p>
                 Continuous Integration/Continuous Deployment, Pipeline as Code,
