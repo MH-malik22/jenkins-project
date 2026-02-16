@@ -1028,6 +1028,10 @@
       box-shadow: 0 32px 80px rgba(0,0,0,0.2);
     }
 
+    .status-card.pending-card::before {
+      background: var(--text-muted);
+    }
+
     html.light .notes-area {
       background: #fff;
     }
@@ -1097,7 +1101,31 @@
   <!-- ─── NAVBAR ─── -->
   <header class="navbar">
     <div class="profile">
-      <img class="profile-avatar" src="data:image/jpeg;base64,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" alt="Mujahid" />
+            <!-- DevOps infinity pipeline logo -->
+      <svg class="profile-avatar" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+        <circle cx="24" cy="24" r="24" fill="#0d1117"/>
+        <!-- Outer ring -->
+        <circle cx="24" cy="24" r="21" fill="none" stroke="#252a3d" stroke-width="1.5"/>
+        <!-- Infinity / CI-CD loop left -->
+        <path d="M24 24 C22 19, 15 16, 11 20 C8 23, 10 29, 15 30 C19 31, 22 28, 24 24Z"
+              fill="none" stroke="#4f8ef7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Infinity / CI-CD loop right -->
+        <path d="M24 24 C26 19, 33 16, 37 20 C40 23, 38 29, 33 30 C29 31, 26 28, 24 24Z"
+              fill="none" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Center hub -->
+        <circle cx="24" cy="24" r="3" fill="white"/>
+        <circle cx="24" cy="24" r="1.5" fill="#0d1117"/>
+        <!-- Left node (Code) -->
+        <circle cx="11" cy="24" r="2.5" fill="#4f8ef7"/>
+        <!-- Right node (Deploy) -->
+        <circle cx="37" cy="24" r="2.5" fill="#00d4aa"/>
+        <!-- Top pipe connector -->
+        <line x1="24" y1="7" x2="24" y2="13" stroke="#555d80" stroke-width="1.5" stroke-linecap="round"/>
+        <polyline points="21,10 24,7 27,10" fill="none" stroke="#4f8ef7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Bottom pipe connector -->
+        <line x1="24" y1="35" x2="24" y2="41" stroke="#555d80" stroke-width="1.5" stroke-linecap="round"/>
+        <polyline points="27,38 24,41 21,38" fill="none" stroke="#00d4aa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
       <div class="profile-info">
         <h3>MH — DevOps Test App</h3>
         <p>Sr. DevOps Engineer</p>
@@ -1145,11 +1173,12 @@
         <div class="item-body">
           <div class="item-top">
             <h3>Git &amp; GitHub</h3>
-            <span class="badge completed" data-tool="git" onclick="toggleStatusMenu(event,'git')">Completed &#9660;
+            <span class="badge completed" data-tool="git" onclick="toggleStatusMenu(event,'git')">
+              <span id="badge-label-git">Completed</span> &#9660;
               <div class="status-dropdown" id="menu-git">
-                <button class="status-option" onclick="setStatus(event,'git','pending')"><span class="opt-dot pending"></span>Pending</button>
-                <button class="status-option" onclick="setStatus(event,'git','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
-                <button class="status-option" onclick="setStatus(event,'git','completed')"><span class="opt-dot completed"></span>Completed</button>
+                <button class="status-option" data-value="pending"     onclick="setStatus(event,'git','pending')"><span class="opt-dot pending"></span>Pending</button>
+                <button class="status-option" data-value="in-progress" onclick="setStatus(event,'git','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
+                <button class="status-option" data-value="completed"   onclick="setStatus(event,'git','completed')"><span class="opt-dot completed"></span>Completed</button>
               </div>
             </span>
           </div>
@@ -1171,11 +1200,12 @@
         <div class="item-body">
           <div class="item-top">
             <h3>Maven</h3>
-            <span class="badge completed" data-tool="maven" onclick="toggleStatusMenu(event,'maven')">Completed &#9660;
+            <span class="badge completed" data-tool="maven" onclick="toggleStatusMenu(event,'maven')">
+              <span id="badge-label-maven">Completed</span> &#9660;
               <div class="status-dropdown" id="menu-maven">
-                <button class="status-option" onclick="setStatus(event,'maven','pending')"><span class="opt-dot pending"></span>Pending</button>
-                <button class="status-option" onclick="setStatus(event,'maven','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
-                <button class="status-option" onclick="setStatus(event,'maven','completed')"><span class="opt-dot completed"></span>Completed</button>
+                <button class="status-option" data-value="pending"     onclick="setStatus(event,'maven','pending')"><span class="opt-dot pending"></span>Pending</button>
+                <button class="status-option" data-value="in-progress" onclick="setStatus(event,'maven','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
+                <button class="status-option" data-value="completed"   onclick="setStatus(event,'maven','completed')"><span class="opt-dot completed"></span>Completed</button>
               </div>
             </span>
           </div>
@@ -1202,11 +1232,12 @@
         <div class="item-body">
           <div class="item-top">
             <h3>Jenkins</h3>
-            <span class="badge completed" data-tool="jenkins" onclick="toggleStatusMenu(event,'jenkins')">Completed &#9660;
+            <span class="badge completed" data-tool="jenkins" onclick="toggleStatusMenu(event,'jenkins')">
+              <span id="badge-label-jenkins">Completed</span> &#9660;
               <div class="status-dropdown" id="menu-jenkins">
-                <button class="status-option" onclick="setStatus(event,'jenkins','pending')"><span class="opt-dot pending"></span>Pending</button>
-                <button class="status-option" onclick="setStatus(event,'jenkins','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
-                <button class="status-option" onclick="setStatus(event,'jenkins','completed')"><span class="opt-dot completed"></span>Completed</button>
+                <button class="status-option" data-value="pending"     onclick="setStatus(event,'jenkins','pending')"><span class="opt-dot pending"></span>Pending</button>
+                <button class="status-option" data-value="in-progress" onclick="setStatus(event,'jenkins','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
+                <button class="status-option" data-value="completed"   onclick="setStatus(event,'jenkins','completed')"><span class="opt-dot completed"></span>Completed</button>
               </div>
             </span>
           </div>
@@ -1229,11 +1260,12 @@
         <div class="item-body">
           <div class="item-top">
             <h3>Ansible</h3>
-            <span class="badge pending" data-tool="ansible" onclick="toggleStatusMenu(event,'ansible')">Pending &#9660;
+            <span class="badge pending" data-tool="ansible" onclick="toggleStatusMenu(event,'ansible')">
+              <span id="badge-label-ansible">Pending</span> &#9660;
               <div class="status-dropdown" id="menu-ansible">
-                <button class="status-option" onclick="setStatus(event,'ansible','pending')"><span class="opt-dot pending"></span>Pending</button>
-                <button class="status-option" onclick="setStatus(event,'ansible','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
-                <button class="status-option" onclick="setStatus(event,'ansible','completed')"><span class="opt-dot completed"></span>Completed</button>
+                <button class="status-option" data-value="pending"     onclick="setStatus(event,'ansible','pending')"><span class="opt-dot pending"></span>Pending</button>
+                <button class="status-option" data-value="in-progress" onclick="setStatus(event,'ansible','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
+                <button class="status-option" data-value="completed"   onclick="setStatus(event,'ansible','completed')"><span class="opt-dot completed"></span>Completed</button>
               </div>
             </span>
           </div>
@@ -1264,11 +1296,12 @@
         <div class="item-body">
           <div class="item-top">
             <h3>Docker</h3>
-            <span class="badge pending" data-tool="docker" onclick="toggleStatusMenu(event,'docker')">Pending &#9660;
+            <span class="badge pending" data-tool="docker" onclick="toggleStatusMenu(event,'docker')">
+              <span id="badge-label-docker">Pending</span> &#9660;
               <div class="status-dropdown" id="menu-docker">
-                <button class="status-option" onclick="setStatus(event,'docker','pending')"><span class="opt-dot pending"></span>Pending</button>
-                <button class="status-option" onclick="setStatus(event,'docker','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
-                <button class="status-option" onclick="setStatus(event,'docker','completed')"><span class="opt-dot completed"></span>Completed</button>
+                <button class="status-option" data-value="pending"     onclick="setStatus(event,'docker','pending')"><span class="opt-dot pending"></span>Pending</button>
+                <button class="status-option" data-value="in-progress" onclick="setStatus(event,'docker','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
+                <button class="status-option" data-value="completed"   onclick="setStatus(event,'docker','completed')"><span class="opt-dot completed"></span>Completed</button>
               </div>
             </span>
           </div>
@@ -1298,11 +1331,12 @@
         <div class="item-body">
           <div class="item-top">
             <h3>Kubernetes</h3>
-            <span class="badge pending" data-tool="kubernetes" onclick="toggleStatusMenu(event,'kubernetes')">Pending &#9660;
+            <span class="badge pending" data-tool="kubernetes" onclick="toggleStatusMenu(event,'kubernetes')">
+              <span id="badge-label-kubernetes">Pending</span> &#9660;
               <div class="status-dropdown" id="menu-kubernetes">
-                <button class="status-option" onclick="setStatus(event,'kubernetes','pending')"><span class="opt-dot pending"></span>Pending</button>
-                <button class="status-option" onclick="setStatus(event,'kubernetes','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
-                <button class="status-option" onclick="setStatus(event,'kubernetes','completed')"><span class="opt-dot completed"></span>Completed</button>
+                <button class="status-option" data-value="pending"     onclick="setStatus(event,'kubernetes','pending')"><span class="opt-dot pending"></span>Pending</button>
+                <button class="status-option" data-value="in-progress" onclick="setStatus(event,'kubernetes','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
+                <button class="status-option" data-value="completed"   onclick="setStatus(event,'kubernetes','completed')"><span class="opt-dot completed"></span>Completed</button>
               </div>
             </span>
           </div>
@@ -1325,11 +1359,12 @@
         <div class="item-body">
           <div class="item-top">
             <h3>Terraform</h3>
-            <span class="badge pending" data-tool="terraform" onclick="toggleStatusMenu(event,'terraform')">Pending &#9660;
+            <span class="badge pending" data-tool="terraform" onclick="toggleStatusMenu(event,'terraform')">
+              <span id="badge-label-terraform">Pending</span> &#9660;
               <div class="status-dropdown" id="menu-terraform">
-                <button class="status-option" onclick="setStatus(event,'terraform','pending')"><span class="opt-dot pending"></span>Pending</button>
-                <button class="status-option" onclick="setStatus(event,'terraform','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
-                <button class="status-option" onclick="setStatus(event,'terraform','completed')"><span class="opt-dot completed"></span>Completed</button>
+                <button class="status-option" data-value="pending"     onclick="setStatus(event,'terraform','pending')"><span class="opt-dot pending"></span>Pending</button>
+                <button class="status-option" data-value="in-progress" onclick="setStatus(event,'terraform','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
+                <button class="status-option" data-value="completed"   onclick="setStatus(event,'terraform','completed')"><span class="opt-dot completed"></span>Completed</button>
               </div>
             </span>
           </div>
@@ -1373,50 +1408,45 @@
         </div>
       </div>
 
-      <!-- Jenkins Project -->
+      <!-- Jenkins Project (static milestone log) -->
       <div class="status-section">
         <div class="status-section-header">
           <h3>Jenkins Project</h3>
           <span class="status-count">3 entries</span>
         </div>
-
         <div class="status-card">
           <div class="card-date">January 25, 2026</div>
           <div class="card-content">Successfully installed and configured Jenkins CI/CD server</div>
-          <span class="tag">✓ Completed</span>
+          <span class="tag">&#10003; Completed</span>
         </div>
-
         <div class="status-card">
           <div class="card-date">January 25, 2026</div>
           <div class="card-content">Successfully configured Tomcat App Server</div>
-          <span class="tag">✓ Completed</span>
+          <span class="tag">&#10003; Completed</span>
         </div>
-
         <div class="status-card">
           <div class="card-date">January 25, 2026</div>
           <div class="card-content">Successfully completed Jenkins FreeStyle Deployment</div>
-          <span class="tag">✓ Completed</span>
+          <span class="tag">&#10003; Completed</span>
         </div>
       </div>
 
-      <!-- Next Up -->
+      <!-- Completed Tools (dynamic) -->
       <div class="status-section">
         <div class="status-section-header">
-          <h3>Next Up</h3>
-          <span class="status-count">2 planned</span>
+          <h3>&#10003; Completed Tools</h3>
+          <span class="status-count" id="completed-count">3 tools</span>
         </div>
+        <div id="status-panel-completed"></div>
+      </div>
 
-        <div class="status-card" style="--border-left-color: var(--text-muted);">
-          <div class="card-date">Upcoming</div>
-          <div class="card-content">Ansible — Infrastructure as Code &amp; Configuration Management</div>
-          <span class="tag pending-tag">◌ Pending</span>
+      <!-- Pending / In Progress Tools (dynamic) -->
+      <div class="status-section">
+        <div class="status-section-header">
+          <h3>&#9711; Pending / In Progress</h3>
+          <span class="status-count" id="pending-count">4 tools</span>
         </div>
-
-        <div class="status-card">
-          <div class="card-date">Upcoming</div>
-          <div class="card-content">Docker — Containerization &amp; Image Creation Pipeline</div>
-          <span class="tag pending-tag">◌ Pending</span>
-        </div>
+        <div id="status-panel-pending"></div>
       </div>
     </section>
   </div>
@@ -1514,11 +1544,10 @@
 
     // ─── STATUS MANAGEMENT ───
     var toolKeys = ['git','maven','jenkins','ansible','docker','kubernetes','terraform'];
+    var statusLabels   = { 'pending': 'Pending', 'in-progress': 'In Progress', 'completed': 'Completed' };
+    var statusIcons    = { 'pending': '◌', 'in-progress': '◑', 'completed': '✓' };
 
-    // Label and class maps
-    var statusLabels = { 'pending': 'Pending', 'in-progress': 'In Progress', 'completed': 'Completed' };
-
-    // Load saved statuses or use defaults
+    // Defaults
     var toolStatuses = {
       'git':        'completed',
       'maven':      'completed',
@@ -1535,113 +1564,129 @@
 
     function toggleStatusMenu(evt, toolKey) {
       evt.stopPropagation();
-      var menu = document.getElementById('menu-' + toolKey);
+      var menu   = document.getElementById('menu-' + toolKey);
       var isOpen = menu.classList.contains('open');
-
-      // Close all other open menus first
       closeAllMenus();
-
       if (!isOpen) {
         menu.classList.add('open');
-        // Mark the current active option
+        // Highlight current selection
         var opts = menu.querySelectorAll('.status-option');
-        var current = toolStatuses[toolKey];
         for (var i = 0; i < opts.length; i++) {
-          var optVal = opts[i].getAttribute('onclick').split("'")[3];
-          opts[i].classList.toggle('active-opt', optVal === current);
+          var val = opts[i].getAttribute('data-value');
+          opts[i].classList.toggle('active-opt', val === toolStatuses[toolKey]);
         }
       }
     }
 
     function closeAllMenus() {
       var menus = document.querySelectorAll('.status-dropdown');
-      for (var i = 0; i < menus.length; i++) {
-        menus[i].classList.remove('open');
-      }
+      for (var i = 0; i < menus.length; i++) { menus[i].classList.remove('open'); }
     }
 
-    // Close menus when clicking outside
     document.addEventListener('click', function() { closeAllMenus(); });
 
     function setStatus(evt, toolKey, newStatus) {
       evt.stopPropagation();
-
-      // Save
       toolStatuses[toolKey] = newStatus;
       try { Store.set('tool_statuses', JSON.stringify(toolStatuses)); } catch(e) {}
-
-      // Update the badge text, class
-      var badge = document.querySelector('.badge[data-tool="' + toolKey + '"]');
-      if (badge) {
-        badge.className = 'badge ' + newStatus;
-        // Rebuild inner content keeping the dropdown intact
-        var menu = document.getElementById('menu-' + toolKey);
-        badge.textContent = statusLabels[newStatus] + ' ';
-        // Re-append the caret and menu (textContent wipes children)
-        var caret = document.createTextNode('\u25bc');
-        badge.appendChild(caret);
-        badge.appendChild(menu);
-      }
-
-      // Update the card border class
-      var card = document.querySelector('.roadmap-item .badge[data-tool="' + toolKey + '"]');
-      if (card) {
-        var item = card.closest('.roadmap-item');
-        if (item) {
-          item.className = 'roadmap-item ' + newStatus;
-        }
-      }
-
+      applyStatus(toolKey, newStatus);
       closeAllMenus();
       updateStats();
+    }
+
+    function applyStatus(toolKey, status) {
+      // Update the badge label span (separate from the dropdown)
+      var labelEl = document.getElementById('badge-label-' + toolKey);
+      if (labelEl) { labelEl.textContent = statusLabels[status]; }
+
+      // Update badge class
+      var badge = document.querySelector('.badge[data-tool="' + toolKey + '"]');
+      if (badge) { badge.className = 'badge ' + status; }
+
+      // Update card left-border class
+      if (badge) {
+        var item = badge.closest('.roadmap-item');
+        if (item) { item.className = 'roadmap-item ' + status; }
+      }
+
+      // Update the status panel dynamic rows
+      refreshStatusPanel();
     }
 
     function updateStats() {
       var completed = 0, pending = 0, inProgress = 0;
       for (var i = 0; i < toolKeys.length; i++) {
         var s = toolStatuses[toolKeys[i]];
-        if (s === 'completed')   { completed++; }
+        if (s === 'completed')    { completed++; }
         else if (s === 'pending') { pending++; }
-        else { inProgress++; }
+        else                      { inProgress++; }
       }
       var total = toolKeys.length;
       var pct   = Math.round((completed / total) * 100);
-
       var elComp = document.getElementById('stat-completed');
       var elPend = document.getElementById('stat-pending');
       var elPct  = document.getElementById('progress-pct');
       var elFill = document.getElementById('progress-fill');
-
       if (elComp) { elComp.textContent = completed; }
       if (elPend) { elPend.textContent = pending + inProgress; }
       if (elPct)  { elPct.textContent  = pct + '%'; }
       if (elFill) { elFill.style.width = pct + '%'; }
     }
 
-    // ─── RESTORE STATUSES ON PAGE LOAD ───
-    (function restoreStatuses() {
+    // Tool display names for status panel
+    var toolNames = {
+      'git': 'Git and GitHub', 'maven': 'Maven', 'jenkins': 'Jenkins',
+      'ansible': 'Ansible', 'docker': 'Docker', 'kubernetes': 'Kubernetes', 'terraform': 'Terraform'
+    };
+
+    function refreshStatusPanel() {
+      var pendingList   = document.getElementById('status-panel-pending');
+      var completedList = document.getElementById('status-panel-completed');
+      if (!pendingList || !completedList) { return; }
+
+      var pendingHTML = '', completedHTML = '';
       for (var i = 0; i < toolKeys.length; i++) {
         var key    = toolKeys[i];
         var status = toolStatuses[key];
-        if (!status) { continue; }
-
-        // Update badge
-        var badge = document.querySelector('.badge[data-tool="' + key + '"]');
-        if (badge) {
-          var menu = document.getElementById('menu-' + key);
-          badge.className = 'badge ' + status;
-          badge.textContent = statusLabels[status] + ' ';
-          var caret = document.createTextNode('\u25bc');
-          badge.appendChild(caret);
-          if (menu) { badge.appendChild(menu); }
+        var name   = toolNames[key];
+        if (status === 'pending' || status === 'in-progress') {
+          var tagCls = status === 'in-progress' ? 'progress-tag' : 'pending-tag';
+          var tagLbl = status === 'in-progress' ? '◑ In Progress' : '◌ Pending';
+          pendingHTML +=
+            '<div class="status-card pending-card">' +
+              '<div class="card-date">Upcoming</div>' +
+              '<div class="card-content">' + name + '</div>' +
+              '<span class="tag ' + tagCls + '">' + tagLbl + '</span>' +
+            '</div>';
+        } else {
+          completedHTML +=
+            '<div class="status-card">' +
+              '<div class="card-date">Completed</div>' +
+              '<div class="card-content">' + name + '</div>' +
+              '<span class="tag">&#10003; Completed</span>' +
+            '</div>';
         }
+      }
 
-        // Update card border
-        var cardBadge = document.querySelector('.badge[data-tool="' + key + '"]');
-        if (cardBadge) {
-          var item = cardBadge.closest('.roadmap-item');
-          if (item) { item.className = 'roadmap-item ' + status; }
-        }
+      pendingList.innerHTML   = pendingHTML   || '<p style="color:var(--text-muted);font-size:0.8rem;padding:0.5rem 0;">All tools completed!</p>';
+      completedList.innerHTML = completedHTML || '<p style="color:var(--text-muted);font-size:0.8rem;padding:0.5rem 0;">None completed yet.</p>';
+
+      // Update section counts
+      var pCount = document.getElementById('pending-count');
+      var cCount = document.getElementById('completed-count');
+      var pTotal = 0, cTotal = 0;
+      for (var j = 0; j < toolKeys.length; j++) {
+        var st = toolStatuses[toolKeys[j]];
+        if (st === 'completed') { cTotal++; } else { pTotal++; }
+      }
+      if (pCount) { pCount.textContent = pTotal + ' tool' + (pTotal !== 1 ? 's' : ''); }
+      if (cCount) { cCount.textContent = cTotal + ' tool' + (cTotal !== 1 ? 's' : ''); }
+    }
+
+    // ─── RESTORE ALL STATUSES ON PAGE LOAD ───
+    (function restoreStatuses() {
+      for (var i = 0; i < toolKeys.length; i++) {
+        applyStatus(toolKeys[i], toolStatuses[toolKeys[i]]);
       }
       updateStats();
     })();
