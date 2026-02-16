@@ -385,7 +385,7 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-      z-index: 50;
+      z-index: 200;
       min-width: 148px;
       overflow: hidden;
       animation: fadeSlideIn 0.15s ease both;
@@ -1175,12 +1175,13 @@
             <h3>Git &amp; GitHub</h3>
             <span class="badge completed" data-tool="git" onclick="toggleStatusMenu(event,'git')">
               <span id="badge-label-git">Completed</span> &#9660;
+              </span>
               <div class="status-dropdown" id="menu-git">
                 <button class="status-option" data-value="pending"     onclick="setStatus(event,'git','pending')"><span class="opt-dot pending"></span>Pending</button>
                 <button class="status-option" data-value="in-progress" onclick="setStatus(event,'git','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
                 <button class="status-option" data-value="completed"   onclick="setStatus(event,'git','completed')"><span class="opt-dot completed"></span>Completed</button>
               </div>
-            </span>
+            
           </div>
           <p>Version Control System &amp; Repository Management, Branching Strategies, Pull Requests, Code Reviews</p>
           <button class="note-btn" data-tool="git" onclick="openWhiteboard('git','Git and GitHub')">📝 Notes</button>
@@ -1202,12 +1203,13 @@
             <h3>Maven</h3>
             <span class="badge completed" data-tool="maven" onclick="toggleStatusMenu(event,'maven')">
               <span id="badge-label-maven">Completed</span> &#9660;
+              </span>
               <div class="status-dropdown" id="menu-maven">
                 <button class="status-option" data-value="pending"     onclick="setStatus(event,'maven','pending')"><span class="opt-dot pending"></span>Pending</button>
                 <button class="status-option" data-value="in-progress" onclick="setStatus(event,'maven','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
                 <button class="status-option" data-value="completed"   onclick="setStatus(event,'maven','completed')"><span class="opt-dot completed"></span>Completed</button>
               </div>
-            </span>
+            
           </div>
           <p>Build Automation, Dependency Management, Project Object Model (POM), Build Lifecycles</p>
           <button class="note-btn" data-tool="maven" onclick="openWhiteboard('maven','Maven')">📝 Notes</button>
@@ -1234,12 +1236,13 @@
             <h3>Jenkins</h3>
             <span class="badge completed" data-tool="jenkins" onclick="toggleStatusMenu(event,'jenkins')">
               <span id="badge-label-jenkins">Completed</span> &#9660;
+              </span>
               <div class="status-dropdown" id="menu-jenkins">
                 <button class="status-option" data-value="pending"     onclick="setStatus(event,'jenkins','pending')"><span class="opt-dot pending"></span>Pending</button>
                 <button class="status-option" data-value="in-progress" onclick="setStatus(event,'jenkins','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
                 <button class="status-option" data-value="completed"   onclick="setStatus(event,'jenkins','completed')"><span class="opt-dot completed"></span>Completed</button>
               </div>
-            </span>
+            
           </div>
           <p>Continuous Integration/Continuous Deployment, Pipeline as Code, Automated Testing, Build Automation</p>
           <button class="note-btn" data-tool="jenkins" onclick="openWhiteboard('jenkins','Jenkins')">📝 Notes</button>
@@ -1262,12 +1265,13 @@
             <h3>Ansible</h3>
             <span class="badge pending" data-tool="ansible" onclick="toggleStatusMenu(event,'ansible')">
               <span id="badge-label-ansible">Pending</span> &#9660;
+              </span>
               <div class="status-dropdown" id="menu-ansible">
                 <button class="status-option" data-value="pending"     onclick="setStatus(event,'ansible','pending')"><span class="opt-dot pending"></span>Pending</button>
                 <button class="status-option" data-value="in-progress" onclick="setStatus(event,'ansible','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
                 <button class="status-option" data-value="completed"   onclick="setStatus(event,'ansible','completed')"><span class="opt-dot completed"></span>Completed</button>
               </div>
-            </span>
+            
           </div>
           <p>Infrastructure as Code, Configuration Management, Playbooks, Roles, Inventory Management</p>
           <button class="note-btn" data-tool="ansible" onclick="openWhiteboard('ansible','Ansible')">📝 Notes</button>
@@ -1298,12 +1302,13 @@
             <h3>Docker</h3>
             <span class="badge pending" data-tool="docker" onclick="toggleStatusMenu(event,'docker')">
               <span id="badge-label-docker">Pending</span> &#9660;
+              </span>
               <div class="status-dropdown" id="menu-docker">
                 <button class="status-option" data-value="pending"     onclick="setStatus(event,'docker','pending')"><span class="opt-dot pending"></span>Pending</button>
                 <button class="status-option" data-value="in-progress" onclick="setStatus(event,'docker','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
                 <button class="status-option" data-value="completed"   onclick="setStatus(event,'docker','completed')"><span class="opt-dot completed"></span>Completed</button>
               </div>
-            </span>
+            
           </div>
           <p>Containerization, Image Creation, Docker Compose, Container Orchestration, Registry Management</p>
           <button class="note-btn" data-tool="docker" onclick="openWhiteboard('docker','Docker')">📝 Notes</button>
@@ -1333,12 +1338,13 @@
             <h3>Kubernetes</h3>
             <span class="badge pending" data-tool="kubernetes" onclick="toggleStatusMenu(event,'kubernetes')">
               <span id="badge-label-kubernetes">Pending</span> &#9660;
+              </span>
               <div class="status-dropdown" id="menu-kubernetes">
                 <button class="status-option" data-value="pending"     onclick="setStatus(event,'kubernetes','pending')"><span class="opt-dot pending"></span>Pending</button>
                 <button class="status-option" data-value="in-progress" onclick="setStatus(event,'kubernetes','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
                 <button class="status-option" data-value="completed"   onclick="setStatus(event,'kubernetes','completed')"><span class="opt-dot completed"></span>Completed</button>
               </div>
-            </span>
+            
           </div>
           <p>Container Orchestration, Pod Management, Services, Deployments, StatefulSets, ConfigMaps &amp; Secrets</p>
           <button class="note-btn" data-tool="kubernetes" onclick="openWhiteboard('kubernetes','Kubernetes')">📝 Notes</button>
@@ -1361,12 +1367,13 @@
             <h3>Terraform</h3>
             <span class="badge pending" data-tool="terraform" onclick="toggleStatusMenu(event,'terraform')">
               <span id="badge-label-terraform">Pending</span> &#9660;
+              </span>
               <div class="status-dropdown" id="menu-terraform">
                 <button class="status-option" data-value="pending"     onclick="setStatus(event,'terraform','pending')"><span class="opt-dot pending"></span>Pending</button>
                 <button class="status-option" data-value="in-progress" onclick="setStatus(event,'terraform','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
                 <button class="status-option" data-value="completed"   onclick="setStatus(event,'terraform','completed')"><span class="opt-dot completed"></span>Completed</button>
               </div>
-            </span>
+            
           </div>
           <p>Infrastructure as Code, Resource Management, State Management, Provider Configuration, Modules</p>
           <button class="note-btn" data-tool="terraform" onclick="openWhiteboard('terraform','Terraform')">📝 Notes</button>
@@ -1564,12 +1571,12 @@
 
     function toggleStatusMenu(evt, toolKey) {
       evt.stopPropagation();
+      evt.preventDefault();
       var menu   = document.getElementById('menu-' + toolKey);
       var isOpen = menu.classList.contains('open');
       closeAllMenus();
       if (!isOpen) {
         menu.classList.add('open');
-        // Highlight current selection
         var opts = menu.querySelectorAll('.status-option');
         for (var i = 0; i < opts.length; i++) {
           var val = opts[i].getAttribute('data-value');
@@ -1583,10 +1590,16 @@
       for (var i = 0; i < menus.length; i++) { menus[i].classList.remove('open'); }
     }
 
-    document.addEventListener('click', function() { closeAllMenus(); });
+    // Close when clicking anywhere outside a dropdown or badge
+    document.addEventListener('click', function(e) {
+      var inMenu  = e.target.closest('.status-dropdown');
+      var inBadge = e.target.closest('.badge[data-tool]');
+      if (!inMenu && !inBadge) { closeAllMenus(); }
+    });
 
     function setStatus(evt, toolKey, newStatus) {
       evt.stopPropagation();
+      evt.preventDefault();
       toolStatuses[toolKey] = newStatus;
       try { Store.set('tool_statuses', JSON.stringify(toolStatuses)); } catch(e) {}
       applyStatus(toolKey, newStatus);
@@ -1595,21 +1608,23 @@
     }
 
     function applyStatus(toolKey, status) {
-      // Update the badge label span (separate from the dropdown)
+      // Update the label span text
       var labelEl = document.getElementById('badge-label-' + toolKey);
       if (labelEl) { labelEl.textContent = statusLabels[status]; }
 
-      // Update badge class
+      // Update badge CSS class
       var badge = document.querySelector('.badge[data-tool="' + toolKey + '"]');
-      if (badge) { badge.className = 'badge ' + status; }
-
-      // Update card left-border class
       if (badge) {
-        var item = badge.closest('.roadmap-item');
+        badge.className = 'badge ' + status;
+        // Update card left-border class
+        var item = badge.parentNode;
+        while (item && item.className && item.className.indexOf('roadmap-item') === -1) {
+          item = item.parentNode;
+        }
         if (item) { item.className = 'roadmap-item ' + status; }
       }
 
-      // Update the status panel dynamic rows
+      // Refresh the right-panel status lists
       refreshStatusPanel();
     }
 
@@ -1690,8 +1705,6 @@
       }
       updateStats();
     })();
-
-    // ─── WHITEBOARD STATE ───
     var currentTool      = null;
     var checklistData    = {};
     var noteColor        = '#eef0f7';
