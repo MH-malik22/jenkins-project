@@ -598,6 +598,369 @@
         grid-template-columns: repeat(3, 1fr);
       }
     }
+    /* ─── NOTE BUTTON on each card ─── */
+    .note-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.65rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      padding: 0.25rem 0.6rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .note-btn:hover {
+      color: var(--accent-gold);
+      border-color: var(--accent-gold);
+      background: rgba(245, 197, 66, 0.06);
+    }
+
+    .note-btn.has-note {
+      color: var(--accent-gold);
+      border-color: var(--accent-gold);
+      border-style: solid;
+      background: rgba(245, 197, 66, 0.08);
+    }
+
+    /* ─── WHITEBOARD OVERLAY ─── */
+    .whiteboard-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .whiteboard-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ─── WHITEBOARD PANEL ─── */
+    .whiteboard {
+      width: 620px;
+      max-width: 95vw;
+      max-height: 90vh;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: scale(0.94) translateY(16px);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .whiteboard-overlay.open .whiteboard {
+      transform: scale(1) translateY(0);
+    }
+
+    .whiteboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-panel);
+      flex-shrink: 0;
+    }
+
+    .whiteboard-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .whiteboard-title span.tool-icon-wrap {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .whiteboard-title h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .whiteboard-title p {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    .whiteboard-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      line-height: 1;
+      padding: 0.3rem;
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+
+    .whiteboard-close:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+    }
+
+    /* ─── TOOLBAR ─── */
+    .whiteboard-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.65rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-panel);
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .tb-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.3rem 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .tb-btn:hover {
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+    }
+
+    .tb-sep {
+      width: 1px;
+      height: 20px;
+      background: var(--border);
+      margin: 0 0.2rem;
+    }
+
+    .tb-color {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+
+    .tb-color:hover, .tb-color.active {
+      transform: scale(1.25);
+      border-color: white;
+    }
+
+    /* ─── NOTES TEXTAREA ─── */
+    .whiteboard-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .notes-area {
+      flex: 1;
+      padding: 1.2rem 1.4rem;
+      background: var(--bg-card);
+      border: none;
+      outline: none;
+      resize: none;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.75;
+      color: var(--text-primary);
+      min-height: 200px;
+    }
+
+    .notes-area::placeholder {
+      color: var(--text-muted);
+    }
+
+    /* ─── CHECKLIST AREA ─── */
+    .checklist-area {
+      padding: 0 1.4rem 0.5rem;
+      display: none;
+      flex-direction: column;
+      gap: 0.4rem;
+      max-height: 180px;
+      overflow-y: auto;
+    }
+
+    .checklist-area.visible {
+      display: flex;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.4rem 0.7rem;
+      animation: fadeSlideIn 0.2s ease both;
+    }
+
+    .check-item input[type="checkbox"] {
+      accent-color: var(--accent-cyan);
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .check-item label {
+      flex: 1;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .check-item input[type="checkbox"]:checked + label {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .check-item .del-check {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 0 0.2rem;
+    }
+
+    .check-item .del-check:hover { color: var(--accent-red); }
+
+    .add-check-row {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.4rem;
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .add-check-row.visible { display: flex; }
+
+    .add-check-input {
+      flex: 1;
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.35rem 0.7rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-primary);
+      outline: none;
+    }
+
+    .add-check-input:focus { border-color: var(--accent-blue); }
+
+    .add-check-btn {
+      background: var(--accent-blue);
+      border: none;
+      color: white;
+      border-radius: 6px;
+      padding: 0.35rem 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    /* ─── FOOTER ─── */
+    .whiteboard-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.4rem;
+      border-top: 1px solid var(--border);
+      background: var(--bg-panel);
+      flex-shrink: 0;
+      gap: 0.5rem;
+    }
+
+    .char-count {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+    }
+
+    .wb-save-btn {
+      background: var(--accent-cyan);
+      border: none;
+      color: #0d0f14;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 0.45rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .wb-save-btn:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+
+    .wb-save-btn.saved {
+      background: var(--accent-gold);
+    }
+
+    .wb-clear-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .wb-clear-btn:hover {
+      border-color: var(--accent-red);
+      color: var(--accent-red);
+    }
+
+    html.light .whiteboard {
+      box-shadow: 0 32px 80px rgba(0,0,0,0.2);
+    }
+
+    html.light .notes-area {
+      background: #fff;
+    }
+
     /* ─── THEME TOGGLE ─── */
     .theme-toggle {
       position: relative;
@@ -714,6 +1077,7 @@
             <span class="badge completed">Completed</span>
           </div>
           <p>Version Control System &amp; Repository Management, Branching Strategies, Pull Requests, Code Reviews</p>
+          <button class="note-btn" data-tool="git" onclick="openWhiteboard('git','Git &amp; GitHub')">📝 Notes</button>
         </div>
       </div>
 
@@ -733,6 +1097,7 @@
             <span class="badge completed">Completed</span>
           </div>
           <p>Build Automation, Dependency Management, Project Object Model (POM), Build Lifecycles</p>
+          <button class="note-btn" data-tool="maven" onclick="openWhiteboard('maven','Maven')">📝 Notes</button>
         </div>
       </div>
 
@@ -757,6 +1122,7 @@
             <span class="badge completed">Completed</span>
           </div>
           <p>Continuous Integration/Continuous Deployment, Pipeline as Code, Automated Testing, Build Automation</p>
+          <button class="note-btn" data-tool="jenkins" onclick="openWhiteboard('jenkins','Jenkins')">📝 Notes</button>
         </div>
       </div>
 
@@ -777,6 +1143,7 @@
             <span class="badge pending">Pending</span>
           </div>
           <p>Infrastructure as Code, Configuration Management, Playbooks, Roles, Inventory Management</p>
+          <button class="note-btn" data-tool="ansible" onclick="openWhiteboard('ansible','Ansible')">📝 Notes</button>
         </div>
       </div>
 
@@ -805,6 +1172,7 @@
             <span class="badge pending">Pending</span>
           </div>
           <p>Containerization, Image Creation, Docker Compose, Container Orchestration, Registry Management</p>
+          <button class="note-btn" data-tool="docker" onclick="openWhiteboard('docker','Docker')">📝 Notes</button>
         </div>
       </div>
 
@@ -832,6 +1200,7 @@
             <span class="badge pending">Pending</span>
           </div>
           <p>Container Orchestration, Pod Management, Services, Deployments, StatefulSets, ConfigMaps &amp; Secrets</p>
+          <button class="note-btn" data-tool="kubernetes" onclick="openWhiteboard('kubernetes','Kubernetes')">📝 Notes</button>
         </div>
       </div>
 
@@ -852,6 +1221,7 @@
             <span class="badge pending">Pending</span>
           </div>
           <p>Infrastructure as Code, Resource Management, State Management, Provider Configuration, Modules</p>
+          <button class="note-btn" data-tool="terraform" onclick="openWhiteboard('terraform','Terraform')">📝 Notes</button>
         </div>
       </div>
     </section>
@@ -937,13 +1307,72 @@
       </div>
     </section>
   </div>
+  <!-- ─── WHITEBOARD OVERLAY ─── -->
+  <div class="whiteboard-overlay" id="wbOverlay" onclick="overlayClick(event)">
+    <div class="whiteboard" id="whiteboardPanel">
+
+      <!-- Header -->
+      <div class="whiteboard-header">
+        <div class="whiteboard-title">
+          <div class="tool-icon-wrap" id="wbIconWrap"></div>
+          <div>
+            <h4 id="wbToolName">Notes</h4>
+            <p>Whiteboard — click Save to keep your notes</p>
+          </div>
+        </div>
+        <button class="whiteboard-close" onclick="closeWhiteboard()" title="Close">✕</button>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="whiteboard-toolbar">
+        <button class="tb-btn" onclick="formatText('bold')" title="Bold"><b>B</b></button>
+        <button class="tb-btn" onclick="formatText('italic')" title="Italic"><i>I</i></button>
+        <button class="tb-btn" onclick="insertBullet()" title="Bullet">• List</button>
+        <button class="tb-btn" onclick="insertHeading()" title="Heading">H1</button>
+        <div class="tb-sep"></div>
+        <button class="tb-btn" onclick="toggleChecklist()" title="Checklist" id="checklistToggleBtn">☑ Checklist</button>
+        <div class="tb-sep"></div>
+        <span style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted);letter-spacing:0.05em;">Color:</span>
+        <span class="tb-color active" style="background:#eef0f7" data-color="#eef0f7" onclick="setColor(this)" title="White"></span>
+        <span class="tb-color" style="background:#00d4aa" data-color="#00d4aa" onclick="setColor(this)" title="Cyan"></span>
+        <span class="tb-color" style="background:#4f8ef7" data-color="#4f8ef7" onclick="setColor(this)" title="Blue"></span>
+        <span class="tb-color" style="background:#f5c542" data-color="#f5c542" onclick="setColor(this)" title="Gold"></span>
+        <span class="tb-color" style="background:#ff5c5c" data-color="#ff5c5c" onclick="setColor(this)" title="Red"></span>
+      </div>
+
+      <!-- Body -->
+      <div class="whiteboard-body">
+        <!-- Checklist section -->
+        <div class="checklist-area" id="checklistArea"></div>
+        <div class="add-check-row" id="addCheckRow">
+          <input class="add-check-input" id="checkInput" type="text" placeholder="Add checklist item..." onkeydown="checkEnter(event)" />
+          <button class="add-check-btn" onclick="addCheckItem()">+ Add</button>
+        </div>
+        <!-- Free-text notes -->
+        <textarea class="notes-area" id="notesTextarea"
+          placeholder="✍️  Start writing your notes here...&#10;&#10;Tip: Use the toolbar above for formatting, or add a checklist for tasks."
+          oninput="updateCharCount()"></textarea>
+      </div>
+
+      <!-- Footer -->
+      <div class="whiteboard-footer">
+        <span class="char-count" id="charCount">0 chars</span>
+        <div style="display:flex;gap:0.5rem;">
+          <button class="wb-clear-btn" onclick="clearNotes()">🗑 Clear</button>
+          <button class="wb-save-btn" id="wbSaveBtn" onclick="saveNotes()">💾 Save</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <script>
+    // ─── THEME TOGGLE ───
     const toggle = document.getElementById('themeToggle');
     const icon   = document.getElementById('toggleIcon');
     const label  = document.getElementById('toggleLabel');
     const html   = document.documentElement;
 
-    // Restore saved preference
     if (localStorage.getItem('theme') === 'light') {
       html.classList.add('light');
       icon.textContent  = '☀️';
@@ -955,6 +1384,226 @@
       icon.textContent  = isLight ? '☀️' : '🌙';
       label.textContent = isLight ? 'Light' : 'Dark';
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    // ─── WHITEBOARD STATE ───
+    let currentTool = null;
+    let checklistData = {};   // { toolKey: [{text, done}] }
+    let noteColor = '#eef0f7';
+    let checklistVisible = false;
+
+    // Load all saved checklist data
+    try {
+      const saved = localStorage.getItem('wb_checklists');
+      if (saved) checklistData = JSON.parse(saved);
+    } catch(e) {}
+
+    // ─── OPEN / CLOSE ───
+    function openWhiteboard(toolKey, toolName) {
+      currentTool = toolKey;
+      checklistVisible = false;
+
+      // Set header
+      document.getElementById('wbToolName').textContent = toolName;
+
+      // Clone icon from card
+      const srcBtn  = document.querySelector(`.note-btn[data-tool="${toolKey}"]`);
+      const srcIcon = srcBtn?.closest('.roadmap-item')?.querySelector('.item-icon');
+      const wrap    = document.getElementById('wbIconWrap');
+      wrap.innerHTML = srcIcon ? srcIcon.innerHTML : '📋';
+
+      // Load notes text
+      const saved = localStorage.getItem(`wb_note_${toolKey}`) || '';
+      const textarea = document.getElementById('notesTextarea');
+      textarea.value = saved;
+      textarea.style.color = localStorage.getItem(`wb_color_${toolKey}`) || 'var(--text-primary)';
+      noteColor = localStorage.getItem(`wb_color_${toolKey}`) || '#eef0f7';
+
+      // Sync color picker
+      document.querySelectorAll('.tb-color').forEach(el => {
+        el.classList.toggle('active', el.dataset.color === noteColor);
+      });
+
+      // Load checklist
+      renderChecklist(toolKey);
+      document.getElementById('checklistArea').classList.remove('visible');
+      document.getElementById('addCheckRow').classList.remove('visible');
+      document.getElementById('checklistToggleBtn').style.borderColor = '';
+      document.getElementById('checklistToggleBtn').style.color = '';
+
+      updateCharCount();
+
+      // Open overlay
+      document.getElementById('wbOverlay').classList.add('open');
+      setTimeout(() => textarea.focus(), 320);
+    }
+
+    function closeWhiteboard() {
+      document.getElementById('wbOverlay').classList.remove('open');
+      currentTool = null;
+    }
+
+    function overlayClick(e) {
+      if (e.target === document.getElementById('wbOverlay')) closeWhiteboard();
+    }
+
+    // Escape key closes
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeWhiteboard();
+    });
+
+    // ─── SAVE / CLEAR ───
+    function saveNotes() {
+      if (!currentTool) return;
+      const text = document.getElementById('notesTextarea').value;
+      localStorage.setItem(`wb_note_${currentTool}`, text);
+      localStorage.setItem(`wb_color_${currentTool}`, noteColor);
+      localStorage.setItem('wb_checklists', JSON.stringify(checklistData));
+
+      // Update note button state
+      const btn = document.querySelector(`.note-btn[data-tool="${currentTool}"]`);
+      const hasContent = text.trim().length > 0 || (checklistData[currentTool]?.length > 0);
+      if (btn) btn.classList.toggle('has-note', hasContent);
+      if (btn) btn.textContent = hasContent ? '📝 Notes ●' : '📝 Notes';
+
+      // Saved feedback
+      const saveBtn = document.getElementById('wbSaveBtn');
+      saveBtn.textContent = '✓ Saved!';
+      saveBtn.classList.add('saved');
+      setTimeout(() => {
+        saveBtn.textContent = '💾 Save';
+        saveBtn.classList.remove('saved');
+      }, 1800);
+    }
+
+    function clearNotes() {
+      if (!confirm('Clear all notes and checklist for this tool?')) return;
+      document.getElementById('notesTextarea').value = '';
+      if (currentTool) {
+        checklistData[currentTool] = [];
+        renderChecklist(currentTool);
+        localStorage.removeItem(`wb_note_${currentTool}`);
+        localStorage.removeItem(`wb_color_${currentTool}`);
+        localStorage.setItem('wb_checklists', JSON.stringify(checklistData));
+        const btn = document.querySelector(`.note-btn[data-tool="${currentTool}"]`);
+        if (btn) { btn.classList.remove('has-note'); btn.textContent = '📝 Notes'; }
+      }
+      updateCharCount();
+    }
+
+    // ─── CHAR COUNT ───
+    function updateCharCount() {
+      const len = document.getElementById('notesTextarea').value.length;
+      document.getElementById('charCount').textContent = `${len} char${len !== 1 ? 's' : ''}`;
+    }
+
+    // ─── SIMPLE FORMATTING (inserts markdown-style text) ───
+    function formatText(type) {
+      const ta = document.getElementById('notesTextarea');
+      const start = ta.selectionStart, end = ta.selectionEnd;
+      const sel = ta.value.substring(start, end) || 'text';
+      let replacement = '';
+      if (type === 'bold')   replacement = `**${sel}**`;
+      if (type === 'italic') replacement = `_${sel}_`;
+      ta.setRangeText(replacement, start, end, 'select');
+      ta.focus();
+      updateCharCount();
+    }
+
+    function insertBullet() {
+      const ta = document.getElementById('notesTextarea');
+      const pos = ta.selectionStart;
+      const before = ta.value.substring(0, pos);
+      const after  = ta.value.substring(pos);
+      const newline = before.length > 0 && !before.endsWith('\n') ? '\n' : '';
+      ta.value = before + newline + '• ' + after;
+      ta.selectionStart = ta.selectionEnd = pos + newline.length + 2;
+      ta.focus();
+      updateCharCount();
+    }
+
+    function insertHeading() {
+      const ta = document.getElementById('notesTextarea');
+      const pos = ta.selectionStart;
+      const before = ta.value.substring(0, pos);
+      const after  = ta.value.substring(pos);
+      const newline = before.length > 0 && !before.endsWith('\n') ? '\n' : '';
+      ta.value = before + newline + '## ' + after;
+      ta.selectionStart = ta.selectionEnd = pos + newline.length + 3;
+      ta.focus();
+      updateCharCount();
+    }
+
+    // ─── COLOR ───
+    function setColor(el) {
+      noteColor = el.dataset.color;
+      document.querySelectorAll('.tb-color').forEach(e => e.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('notesTextarea').style.color = noteColor;
+    }
+
+    // ─── CHECKLIST ───
+    function toggleChecklist() {
+      checklistVisible = !checklistVisible;
+      document.getElementById('checklistArea').classList.toggle('visible', checklistVisible);
+      document.getElementById('addCheckRow').classList.toggle('visible', checklistVisible);
+      const btn = document.getElementById('checklistToggleBtn');
+      btn.style.borderColor = checklistVisible ? 'var(--accent-cyan)' : '';
+      btn.style.color       = checklistVisible ? 'var(--accent-cyan)' : '';
+      if (checklistVisible) document.getElementById('checkInput').focus();
+    }
+
+    function renderChecklist(toolKey) {
+      const area = document.getElementById('checklistArea');
+      const items = checklistData[toolKey] || [];
+      area.innerHTML = items.map((item, i) => `
+        <div class="check-item">
+          <input type="checkbox" id="chk_${i}" ${item.done ? 'checked' : ''} onchange="toggleCheck(${i})">
+          <label for="chk_${i}">${escHtml(item.text)}</label>
+          <button class="del-check" onclick="deleteCheck(${i})" title="Remove">✕</button>
+        </div>
+      `).join('');
+    }
+
+    function addCheckItem() {
+      const input = document.getElementById('checkInput');
+      const text = input.value.trim();
+      if (!text || !currentTool) return;
+      if (!checklistData[currentTool]) checklistData[currentTool] = [];
+      checklistData[currentTool].push({ text, done: false });
+      renderChecklist(currentTool);
+      input.value = '';
+      input.focus();
+    }
+
+    function checkEnter(e) {
+      if (e.key === 'Enter') { e.preventDefault(); addCheckItem(); }
+    }
+
+    function toggleCheck(i) {
+      if (!currentTool || !checklistData[currentTool]) return;
+      checklistData[currentTool][i].done = !checklistData[currentTool][i].done;
+    }
+
+    function deleteCheck(i) {
+      if (!currentTool || !checklistData[currentTool]) return;
+      checklistData[currentTool].splice(i, 1);
+      renderChecklist(currentTool);
+    }
+
+    function escHtml(str) {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // ─── RESTORE NOTE BUTTON STATES ON LOAD ───
+    document.querySelectorAll('.note-btn').forEach(btn => {
+      const key = btn.dataset.tool;
+      const hasNote = !!(localStorage.getItem(`wb_note_${key}`)?.trim());
+      const hasCheck = (checklistData[key]?.length > 0);
+      if (hasNote || hasCheck) {
+        btn.classList.add('has-note');
+        btn.textContent = '📝 Notes ●';
+      }
     });
   </script>
 </body>
