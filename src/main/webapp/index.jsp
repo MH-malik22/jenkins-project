@@ -363,6 +363,80 @@
       border: 1px solid rgba(79, 142, 247, 0.3);
     }
 
+    /* ─── CLICKABLE STATUS BADGE ─── */
+    .badge {
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+    }
+
+    .badge:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+    }
+
+    /* ─── STATUS DROPDOWN ─── */
+    .status-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      z-index: 50;
+      min-width: 148px;
+      overflow: hidden;
+      animation: fadeSlideIn 0.15s ease both;
+    }
+
+    .status-dropdown.open {
+      display: block;
+    }
+
+    .status-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.85rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: background 0.12s;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+    }
+
+    .status-option:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+    }
+
+    .status-option .opt-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .status-option .opt-dot.pending    { background: var(--text-muted); }
+    .status-option .opt-dot.in-progress { background: var(--accent-blue); }
+    .status-option .opt-dot.completed  { background: var(--accent-cyan); }
+
+    .status-option.active-opt {
+      color: var(--text-primary);
+      background: var(--bg-card-hover);
+    }
+
+    .item-top {
+      position: relative;
+    }
+
     /* ─── RIGHT COLUMN ─── */
     .status {
       padding: 2.5rem 2rem;
@@ -1023,7 +1097,7 @@
   <!-- ─── NAVBAR ─── -->
   <header class="navbar">
     <div class="profile">
-      <img class="profile-avatar">
+      <img class="profile-avatar" src="data:image/jpeg;base64,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" alt="Mujahid" />
       <div class="profile-info">
         <h3>MH — DevOps Test App</h3>
         <p>Sr. DevOps Engineer</p>
@@ -1071,7 +1145,13 @@
         <div class="item-body">
           <div class="item-top">
             <h3>Git &amp; GitHub</h3>
-            <span class="badge completed">Completed</span>
+            <span class="badge completed" data-tool="git" onclick="toggleStatusMenu(event,'git')">Completed &#9660;
+              <div class="status-dropdown" id="menu-git">
+                <button class="status-option" onclick="setStatus(event,'git','pending')"><span class="opt-dot pending"></span>Pending</button>
+                <button class="status-option" onclick="setStatus(event,'git','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
+                <button class="status-option" onclick="setStatus(event,'git','completed')"><span class="opt-dot completed"></span>Completed</button>
+              </div>
+            </span>
           </div>
           <p>Version Control System &amp; Repository Management, Branching Strategies, Pull Requests, Code Reviews</p>
           <button class="note-btn" data-tool="git" onclick="openWhiteboard('git','Git and GitHub')">📝 Notes</button>
@@ -1091,7 +1171,13 @@
         <div class="item-body">
           <div class="item-top">
             <h3>Maven</h3>
-            <span class="badge completed">Completed</span>
+            <span class="badge completed" data-tool="maven" onclick="toggleStatusMenu(event,'maven')">Completed &#9660;
+              <div class="status-dropdown" id="menu-maven">
+                <button class="status-option" onclick="setStatus(event,'maven','pending')"><span class="opt-dot pending"></span>Pending</button>
+                <button class="status-option" onclick="setStatus(event,'maven','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
+                <button class="status-option" onclick="setStatus(event,'maven','completed')"><span class="opt-dot completed"></span>Completed</button>
+              </div>
+            </span>
           </div>
           <p>Build Automation, Dependency Management, Project Object Model (POM), Build Lifecycles</p>
           <button class="note-btn" data-tool="maven" onclick="openWhiteboard('maven','Maven')">📝 Notes</button>
@@ -1116,7 +1202,13 @@
         <div class="item-body">
           <div class="item-top">
             <h3>Jenkins</h3>
-            <span class="badge completed">Completed</span>
+            <span class="badge completed" data-tool="jenkins" onclick="toggleStatusMenu(event,'jenkins')">Completed &#9660;
+              <div class="status-dropdown" id="menu-jenkins">
+                <button class="status-option" onclick="setStatus(event,'jenkins','pending')"><span class="opt-dot pending"></span>Pending</button>
+                <button class="status-option" onclick="setStatus(event,'jenkins','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
+                <button class="status-option" onclick="setStatus(event,'jenkins','completed')"><span class="opt-dot completed"></span>Completed</button>
+              </div>
+            </span>
           </div>
           <p>Continuous Integration/Continuous Deployment, Pipeline as Code, Automated Testing, Build Automation</p>
           <button class="note-btn" data-tool="jenkins" onclick="openWhiteboard('jenkins','Jenkins')">📝 Notes</button>
@@ -1137,7 +1229,13 @@
         <div class="item-body">
           <div class="item-top">
             <h3>Ansible</h3>
-            <span class="badge pending">Pending</span>
+            <span class="badge pending" data-tool="ansible" onclick="toggleStatusMenu(event,'ansible')">Pending &#9660;
+              <div class="status-dropdown" id="menu-ansible">
+                <button class="status-option" onclick="setStatus(event,'ansible','pending')"><span class="opt-dot pending"></span>Pending</button>
+                <button class="status-option" onclick="setStatus(event,'ansible','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
+                <button class="status-option" onclick="setStatus(event,'ansible','completed')"><span class="opt-dot completed"></span>Completed</button>
+              </div>
+            </span>
           </div>
           <p>Infrastructure as Code, Configuration Management, Playbooks, Roles, Inventory Management</p>
           <button class="note-btn" data-tool="ansible" onclick="openWhiteboard('ansible','Ansible')">📝 Notes</button>
@@ -1166,7 +1264,13 @@
         <div class="item-body">
           <div class="item-top">
             <h3>Docker</h3>
-            <span class="badge pending">Pending</span>
+            <span class="badge pending" data-tool="docker" onclick="toggleStatusMenu(event,'docker')">Pending &#9660;
+              <div class="status-dropdown" id="menu-docker">
+                <button class="status-option" onclick="setStatus(event,'docker','pending')"><span class="opt-dot pending"></span>Pending</button>
+                <button class="status-option" onclick="setStatus(event,'docker','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
+                <button class="status-option" onclick="setStatus(event,'docker','completed')"><span class="opt-dot completed"></span>Completed</button>
+              </div>
+            </span>
           </div>
           <p>Containerization, Image Creation, Docker Compose, Container Orchestration, Registry Management</p>
           <button class="note-btn" data-tool="docker" onclick="openWhiteboard('docker','Docker')">📝 Notes</button>
@@ -1194,7 +1298,13 @@
         <div class="item-body">
           <div class="item-top">
             <h3>Kubernetes</h3>
-            <span class="badge pending">Pending</span>
+            <span class="badge pending" data-tool="kubernetes" onclick="toggleStatusMenu(event,'kubernetes')">Pending &#9660;
+              <div class="status-dropdown" id="menu-kubernetes">
+                <button class="status-option" onclick="setStatus(event,'kubernetes','pending')"><span class="opt-dot pending"></span>Pending</button>
+                <button class="status-option" onclick="setStatus(event,'kubernetes','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
+                <button class="status-option" onclick="setStatus(event,'kubernetes','completed')"><span class="opt-dot completed"></span>Completed</button>
+              </div>
+            </span>
           </div>
           <p>Container Orchestration, Pod Management, Services, Deployments, StatefulSets, ConfigMaps &amp; Secrets</p>
           <button class="note-btn" data-tool="kubernetes" onclick="openWhiteboard('kubernetes','Kubernetes')">📝 Notes</button>
@@ -1215,7 +1325,13 @@
         <div class="item-body">
           <div class="item-top">
             <h3>Terraform</h3>
-            <span class="badge pending">Pending</span>
+            <span class="badge pending" data-tool="terraform" onclick="toggleStatusMenu(event,'terraform')">Pending &#9660;
+              <div class="status-dropdown" id="menu-terraform">
+                <button class="status-option" onclick="setStatus(event,'terraform','pending')"><span class="opt-dot pending"></span>Pending</button>
+                <button class="status-option" onclick="setStatus(event,'terraform','in-progress')"><span class="opt-dot in-progress"></span>In Progress</button>
+                <button class="status-option" onclick="setStatus(event,'terraform','completed')"><span class="opt-dot completed"></span>Completed</button>
+              </div>
+            </span>
           </div>
           <p>Infrastructure as Code, Resource Management, State Management, Provider Configuration, Modules</p>
           <button class="note-btn" data-tool="terraform" onclick="openWhiteboard('terraform','Terraform')">📝 Notes</button>
@@ -1233,15 +1349,15 @@
       <!-- Stats Overview -->
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-value cyan">3</div>
+          <div class="stat-value cyan" id="stat-completed">3</div>
           <div class="stat-label">Completed</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value muted">4</div>
+          <div class="stat-value muted" id="stat-pending">4</div>
           <div class="stat-label">Pending</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value blue">7</div>
+          <div class="stat-value blue" id="stat-total">7</div>
           <div class="stat-label">Total</div>
         </div>
       </div>
@@ -1250,10 +1366,10 @@
       <div class="progress-section">
         <div class="progress-label">
           <span>Overall Progress</span>
-          <span>43%</span>
+          <span id="progress-pct">43%</span>
         </div>
         <div class="progress-bar">
-          <div class="progress-fill" style="width: 43%;"></div>
+          <div class="progress-fill" id="progress-fill" style="width: 43%;"></div>
         </div>
       </div>
 
@@ -1395,6 +1511,140 @@
       toggleLbl.textContent  = isLight ? 'Light' : 'Dark';
       Store.set('theme', isLight ? 'light' : 'dark');
     });
+
+    // ─── STATUS MANAGEMENT ───
+    var toolKeys = ['git','maven','jenkins','ansible','docker','kubernetes','terraform'];
+
+    // Label and class maps
+    var statusLabels = { 'pending': 'Pending', 'in-progress': 'In Progress', 'completed': 'Completed' };
+
+    // Load saved statuses or use defaults
+    var toolStatuses = {
+      'git':        'completed',
+      'maven':      'completed',
+      'jenkins':    'completed',
+      'ansible':    'pending',
+      'docker':     'pending',
+      'kubernetes': 'pending',
+      'terraform':  'pending'
+    };
+    try {
+      var savedStatuses = Store.get('tool_statuses');
+      if (savedStatuses) { toolStatuses = JSON.parse(savedStatuses); }
+    } catch(e) {}
+
+    function toggleStatusMenu(evt, toolKey) {
+      evt.stopPropagation();
+      var menu = document.getElementById('menu-' + toolKey);
+      var isOpen = menu.classList.contains('open');
+
+      // Close all other open menus first
+      closeAllMenus();
+
+      if (!isOpen) {
+        menu.classList.add('open');
+        // Mark the current active option
+        var opts = menu.querySelectorAll('.status-option');
+        var current = toolStatuses[toolKey];
+        for (var i = 0; i < opts.length; i++) {
+          var optVal = opts[i].getAttribute('onclick').split("'")[3];
+          opts[i].classList.toggle('active-opt', optVal === current);
+        }
+      }
+    }
+
+    function closeAllMenus() {
+      var menus = document.querySelectorAll('.status-dropdown');
+      for (var i = 0; i < menus.length; i++) {
+        menus[i].classList.remove('open');
+      }
+    }
+
+    // Close menus when clicking outside
+    document.addEventListener('click', function() { closeAllMenus(); });
+
+    function setStatus(evt, toolKey, newStatus) {
+      evt.stopPropagation();
+
+      // Save
+      toolStatuses[toolKey] = newStatus;
+      try { Store.set('tool_statuses', JSON.stringify(toolStatuses)); } catch(e) {}
+
+      // Update the badge text, class
+      var badge = document.querySelector('.badge[data-tool="' + toolKey + '"]');
+      if (badge) {
+        badge.className = 'badge ' + newStatus;
+        // Rebuild inner content keeping the dropdown intact
+        var menu = document.getElementById('menu-' + toolKey);
+        badge.textContent = statusLabels[newStatus] + ' ';
+        // Re-append the caret and menu (textContent wipes children)
+        var caret = document.createTextNode('\u25bc');
+        badge.appendChild(caret);
+        badge.appendChild(menu);
+      }
+
+      // Update the card border class
+      var card = document.querySelector('.roadmap-item .badge[data-tool="' + toolKey + '"]');
+      if (card) {
+        var item = card.closest('.roadmap-item');
+        if (item) {
+          item.className = 'roadmap-item ' + newStatus;
+        }
+      }
+
+      closeAllMenus();
+      updateStats();
+    }
+
+    function updateStats() {
+      var completed = 0, pending = 0, inProgress = 0;
+      for (var i = 0; i < toolKeys.length; i++) {
+        var s = toolStatuses[toolKeys[i]];
+        if (s === 'completed')   { completed++; }
+        else if (s === 'pending') { pending++; }
+        else { inProgress++; }
+      }
+      var total = toolKeys.length;
+      var pct   = Math.round((completed / total) * 100);
+
+      var elComp = document.getElementById('stat-completed');
+      var elPend = document.getElementById('stat-pending');
+      var elPct  = document.getElementById('progress-pct');
+      var elFill = document.getElementById('progress-fill');
+
+      if (elComp) { elComp.textContent = completed; }
+      if (elPend) { elPend.textContent = pending + inProgress; }
+      if (elPct)  { elPct.textContent  = pct + '%'; }
+      if (elFill) { elFill.style.width = pct + '%'; }
+    }
+
+    // ─── RESTORE STATUSES ON PAGE LOAD ───
+    (function restoreStatuses() {
+      for (var i = 0; i < toolKeys.length; i++) {
+        var key    = toolKeys[i];
+        var status = toolStatuses[key];
+        if (!status) { continue; }
+
+        // Update badge
+        var badge = document.querySelector('.badge[data-tool="' + key + '"]');
+        if (badge) {
+          var menu = document.getElementById('menu-' + key);
+          badge.className = 'badge ' + status;
+          badge.textContent = statusLabels[status] + ' ';
+          var caret = document.createTextNode('\u25bc');
+          badge.appendChild(caret);
+          if (menu) { badge.appendChild(menu); }
+        }
+
+        // Update card border
+        var cardBadge = document.querySelector('.badge[data-tool="' + key + '"]');
+        if (cardBadge) {
+          var item = cardBadge.closest('.roadmap-item');
+          if (item) { item.className = 'roadmap-item ' + status; }
+        }
+      }
+      updateStats();
+    })();
 
     // ─── WHITEBOARD STATE ───
     var currentTool      = null;
