@@ -401,9 +401,9 @@
           <div class="status-item">
             <div class="date">January 25, 20265</div>
             <div class="content">
-             Currently working on Jenkins
+             Jenkins
             </div>
-            <span class="tag">Process</span>
+            <span class="tag">Completed</span>
           </div>
         <div class="status-item">
             <div class="date">January 25, 2026</div>
